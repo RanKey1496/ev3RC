@@ -48,6 +48,10 @@ def on_message(ws, message):
         if state['type'] == 'speak':
             print("Speak: ", state['text'])
             # ev3.Sound.speak(state['text']).wait()            
+        if state['type'] == 'stop':
+            print("--- Stopping process ---")
+            sensor_stop.set()
+            exit()
     except:
         print("Failed handling commands: ", sys.exc_info()[0])
 

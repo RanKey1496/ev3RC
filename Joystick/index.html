@@ -61,6 +61,11 @@
         $('#text').val('');
         connection.send(JSON.stringify({ type: 'speak', text }))
       });
+
+      $("#stop").submit((event) => {
+        event.preventDefault();
+        connection.send(JSON.stringify({ type: 'stop' }));
+      })
     };
   </script>
 </head>
@@ -76,9 +81,16 @@
       <img src="./nomiente.png" style="width: 300px; height: auto;"/>
     </div>
   </div>
-  <form id="speak" class="speak" align="center" style="margin-top: 20px">
-    <input id="text" class="text" type="text">
-    <input type="submit" value="Speak">
+  <div class="speak" align="center" style="margin-top: 20px">
+    <form id="speak">
+      <input id="text" class="text" type="text">
+      <input type="submit" value="Speak">
+    </form>
+  </div>
+  <div class="stop" align="center" style="margin-top: 20px">
+    <form id="stop">
+      <input type="submit" value="Stop and close">
+    </form>
   </div>
 </body>
 </html>
