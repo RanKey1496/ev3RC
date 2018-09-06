@@ -54,6 +54,13 @@
           nipple.off('move');
           connection.send(JSON.stringify({ type: 'motor', 11: 0, 12: 0 }));
       });
+
+      $("#speak").submit((event) => {
+        event.preventDefault();
+        var text = $('#text').val();
+        $('#text').val('');
+        connection.send(JSON.stringify({ type: 'speak', text }))
+      });
     };
   </script>
 </head>
@@ -68,6 +75,10 @@
     <div id="joystick" style="background: #eeeeee; position: relative; width: 500px; height: 500px; border: 1px solid #aaaaaa;">
       <img src="./nomiente.png" style="width: 300px; height: auto;"/>
     </div>
+  </div>
+  <form id="speak" class="speak" align="center" style="margin-top: 20px">
+    <input id="text" class="text" type="text">
+    <input type="submit" value="Speak">
   </div>
 </body>
 </html>
