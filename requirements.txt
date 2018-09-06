@@ -1,0 +1,7 @@
+---
+
+pip install websocket-client
+pip install git+https://github.com/dpallot/simple-websocket-server.git
+pip install python-ev3dev
+
+---

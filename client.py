@@ -18,6 +18,9 @@ import ev3dev.ev3 as ev3
 
 from random import randint
 
+server = "192.168.0.56"
+port = "8095"
+
 # large_motor1 = ev3.LargeMotor('outB')
 # large_motor2 = ev3.LargeMotor('outC')
 # medium_motor = ev3.LargeMotor('outA')
@@ -72,7 +75,7 @@ def process_input(ws, stop):
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("ws://localhost:8095/",
+    ws = websocket.WebSocketApp("ws://"+ server +":" + port + "/",
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)
